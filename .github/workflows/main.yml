@@ -48,6 +48,22 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: newman/
 
+
+      - name: Send an Email Notification
+        if: always()
+        uses: dawidd6/action-send-mail@v18
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Free CRM Login collection
+          to: k.divya3521@gmail.com
+          from: ${{ secrets.EMAIL_USERNAME }}
+          body: |
+                Hi ,Letting you know that postmal collection has executed.
+                The report has been published here: https://github.com/kdivya3521-commits/FreeCRM-Login/deployments/github-pages
+
      
           
         
