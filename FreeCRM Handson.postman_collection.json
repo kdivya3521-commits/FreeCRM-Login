@@ -1,0 +1,510 @@
+{
+  "info": {
+    "_postman_id": "cffdd741-9ff6-4620-92cd-a3f52f1ceecc",
+    "name": "FreeCRM Handson",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11390606",
+    "_collection_link": "https://go.postman.co/collection/11390606-cffdd741-9ff6-4620-92cd-a3f52f1ceecc?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "FreeCRM Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "console.log(\"FreeCRM Login\")",
+              "var responseBody = pm.response.json()",
+              "const responseSchema = {",
+              "    \"$ref\": \"#/definitions/Welcome9\",",
+              "    \"definitions\": {",
+              "        \"Welcome9\": {",
+              "            \"type\": \"object\",",
+              "            \"additionalProperties\": false,",
+              "            \"properties\": {",
+              "                \"response\": {",
+              "                    \"$ref\": \"#/definitions/Response\"",
+              "                },",
+              "                \"process_time\": {",
+              "                    \"type\": \"number\"",
+              "                }",
+              "            },",
+              "            \"required\": [",
+              "                \"process_time\",",
+              "                \"response\"",
+              "            ],",
+              "            \"title\": \"Welcome9\"",
+              "        },",
+              "        \"Response\": {",
+              "            \"type\": \"object\",",
+              "            \"additionalProperties\": false,",
+              "            \"properties\": {",
+              "                \"success\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"version\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"token\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"urls\": {",
+              "                    \"$ref\": \"#/definitions/Urls\"",
+              "                },",
+              "                \"user\": {",
+              "                    \"$ref\": \"#/definitions/User\"",
+              "                }",
+              "            },",
+              "            \"required\": [",
+              "                \"success\",",
+              "                \"token\",",
+              "                \"urls\",",
+              "                \"user\",",
+              "                \"version\"",
+              "            ],",
+              "            \"title\": \"Response\"",
+              "        },",
+              "        \"Urls\": {",
+              "            \"type\": \"object\",",
+              "            \"additionalProperties\": false,",
+              "            \"properties\": {",
+              "                \"www\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"api\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"ui\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"api_url\": {",
+              "                    \"type\": \"string\",",
+              "                    \"format\": \"uri\",",
+              "                    \"qt-uri-protocols\": [",
+              "                        \"https\"",
+              "                    ]",
+              "                },",
+              "                \"onesignal_app_id\": {",
+              "                    \"type\": \"string\",",
+              "                    \"format\": \"uuid\"",
+              "                }",
+              "            },",
+              "            \"required\": [",
+              "                \"api\",",
+              "                \"api_url\",",
+              "                \"onesignal_app_id\",",
+              "                \"ui\",",
+              "                \"www\"",
+              "            ],",
+              "            \"title\": \"Urls\"",
+              "        },",
+              "        \"User\": {",
+              "            \"type\": \"object\",",
+              "            \"additionalProperties\": false,",
+              "            \"properties\": {",
+              "                \"id\": {",
+              "                    \"type\": \"string\",",
+              "                    \"format\": \"uuid\"",
+              "                },",
+              "                \"email\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"first_name\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"last_name\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"public_address\": {",
+              "                    \"type\": \"null\"",
+              "                },",
+              "                \"created_at\": {",
+              "                    \"type\": \"string\",",
+              "                    \"format\": \"date-time\"",
+              "                },",
+              "                \"account_owner\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"security\": {",
+              "                    \"$ref\": \"#/definitions/Security\"",
+              "                },",
+              "                \"account_id\": {",
+              "                    \"type\": \"string\",",
+              "                    \"format\": \"uuid\"",
+              "                },",
+              "                \"timezone\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"phone\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"phone_verified\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"verified_for_calls\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"twilio_number\": {",
+              "                    \"type\": \"null\"",
+              "                },",
+              "                \"twilio_numbers\": {",
+              "                    \"type\": \"array\",",
+              "                    \"items\": {}",
+              "                },",
+              "                \"country\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"country_code\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"telephony\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"google\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"google_account\": {",
+              "                    \"type\": \"null\"",
+              "                },",
+              "                \"quickbooks\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"image\": {",
+              "                    \"type\": \"null\"",
+              "                },",
+              "                \"settings\": {",
+              "                    \"$ref\": \"#/definitions/Settings\"",
+              "                },",
+              "                \"has_templates\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"facebook_id\": {",
+              "                    \"type\": \"null\"",
+              "                },",
+              "                \"facebook_auth\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"linkedin_id\": {",
+              "                    \"type\": \"null\"",
+              "                },",
+              "                \"linkedin_auth\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"one_signal_ids\": {",
+              "                    \"type\": \"array\",",
+              "                    \"items\": {}",
+              "                },",
+              "                \"has_docusign\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"has_ai\": {",
+              "                    \"type\": \"boolean\"",
+              "                }",
+              "            },",
+              "            \"required\": [",
+              "                \"account_id\",",
+              "                \"account_owner\",",
+              "                \"country\",",
+              "                \"country_code\",",
+              "                \"created_at\",",
+              "                \"email\",",
+              "                \"facebook_auth\",",
+              "                \"facebook_id\",",
+              "                \"first_name\",",
+              "                \"google\",",
+              "                \"google_account\",",
+              "                \"has_ai\",",
+              "                \"has_docusign\",",
+              "                \"has_templates\",",
+              "                \"id\",",
+              "                \"image\",",
+              "                \"last_name\",",
+              "                \"linkedin_auth\",",
+              "                \"linkedin_id\",",
+              "                \"one_signal_ids\",",
+              "                \"phone\",",
+              "                \"phone_verified\",",
+              "                \"public_address\",",
+              "                \"quickbooks\",",
+              "                \"security\",",
+              "                \"settings\",",
+              "                \"telephony\",",
+              "                \"timezone\",",
+              "                \"twilio_number\",",
+              "                \"twilio_numbers\",",
+              "                \"verified_for_calls\"",
+              "            ],",
+              "            \"title\": \"User\"",
+              "        },",
+              "        \"Security\": {",
+              "            \"type\": \"object\",",
+              "            \"additionalProperties\": false,",
+              "            \"properties\": {",
+              "                \"ssi\": {",
+              "                    \"type\": \"boolean\"",
+              "                },",
+              "                \"groups\": {",
+              "                    \"type\": \"array\",",
+              "                    \"items\": {",
+              "                        \"type\": \"string\"",
+              "                    }",
+              "                },",
+              "                \"permissions\": {",
+              "                    \"type\": \"array\",",
+              "                    \"items\": {",
+              "                        \"type\": \"string\"",
+              "                    }",
+              "                },",
+              "                \"group_permissions\": {",
+              "                    \"type\": \"array\",",
+              "                    \"items\": {",
+              "                        \"type\": \"string\"",
+              "                    }",
+              "                },",
+              "                \"direct_permissions\": {",
+              "                    \"type\": \"array\",",
+              "                    \"items\": {}",
+              "                }",
+              "            },",
+              "            \"required\": [",
+              "                \"direct_permissions\",",
+              "                \"group_permissions\",",
+              "                \"groups\",",
+              "                \"permissions\",",
+              "                \"ssi\"",
+              "            ],",
+              "            \"title\": \"Security\"",
+              "        },",
+              "        \"Settings\": {",
+              "            \"type\": \"object\",",
+              "            \"additionalProperties\": false,",
+              "            \"properties\": {",
+              "                \"locale\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"default_country\": {",
+              "                    \"type\": \"string\"",
+              "                },",
+              "                \"show_onboarding_wizard\": {",
+              "                    \"type\": \"boolean\"",
+              "                }",
+              "            },",
+              "            \"required\": [",
+              "                \"default_country\",",
+              "                \"locale\",",
+              "                \"show_onboarding_wizard\"",
+              "            ],",
+              "            \"title\": \"Settings\"",
+              "        }",
+              "    }",
+              "}",
+              "",
+              "pm.test(\"Verify the status code is 201\",function(){",
+              "    pm.response.to.have.status(201)",
+              "})",
+              "pm.test(\"Verify the response body contails success as true\",function(){",
+              "    pm.expect(responseBody.response.success).to.be.eql(true)",
+              "})",
+              "pm.test(\"Verify 40-character hexadecimal token is generated everytime\",function(){",
+              "    pm.expect(responseBody.response.token.length).to.be.eql(40)",
+              "    pm.expect(responseBody.response.token).to.be.not.null",
+              "})",
+              "pm.test(\"Validate the JSON schema\",function(){",
+              "    pm.response.to.have.jsonSchema(responseSchema)",
+              "})",
+              "pm.test(\"Verify the response time should be <150ms\",function(){",
+              "    pm.expect(pm.response.responseTime).to.be.below(200)",
+              "})",
+              "pm.collectionVariables.set(\"loginToken\",responseBody.response.token)"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "accept-language",
+            "value": "en-US,en;q=0.9"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE _URL}}/auth/",
+          "host": [
+            "{{BASE _URL}}"
+          ],
+          "path": [
+            "auth",
+            ""
+          ]
+        },
+        "description": "Generated from cURL: curl 'https://api.freecrm.com/api/1/auth/' \\\n  -H 'accept: application/json' \\\n  -H 'accept-language: en-US,en;q=0.9' \\\n  -H 'authorization: Token null' \\\n  -H 'content-type: application/json' \\\n  -H 'origin: https://ui.freecrm.com' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://ui.freecrm.com/' \\\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"150\", \"Google Chrome\";v=\"150\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-site' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36' \\\n  --data-raw '{\"email\":\"tstories901@gmail.com\",\"password\":\"Telugu3521\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "FreeCRM Login Invalid Cred",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "console.log(\"FreeCRM Login : Invalid Cred\")",
+              "var responseBody = pm.response.json()",
+              "pm.test(\"Status code should be 401\",function(){",
+              "    pm.response.to.have.status(401)",
+              "})",
+              "pm.test(\"Verify the error message in the response :Invalid login\",function(){",
+              "    pm.expect(responseBody.response.error).to.eql(\"Invalid login\")",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json"
+          },
+          {
+            "key": "accept-language",
+            "value": "en-US,en;q=0.9"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"k.divya3521@gmail.com\",\n    \"password\": \"divya2019\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{BASE _URL}}/auth/",
+          "host": [
+            "{{BASE _URL}}"
+          ],
+          "path": [
+            "auth",
+            ""
+          ]
+        },
+        "description": "Generated from cURL: curl 'https://api.freecrm.com/api/1/auth/' \\\n  -H 'accept: application/json' \\\n  -H 'accept-language: en-US,en;q=0.9' \\\n  -H 'authorization: Token null' \\\n  -H 'content-type: application/json' \\\n  -H 'origin: https://ui.freecrm.com' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://ui.freecrm.com/' \\\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"150\", \"Google Chrome\";v=\"150\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-site' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36' \\\n  --data-raw '{\"email\":\"tstories901@gmail.com\",\"password\":\"Telugu3521\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "Contact Grid View",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "console.log(\"Contact Gridview Positive test cases\")",
+              "pm.test(\"Status code should be 200\",function(){",
+              "    pm.response.to.have.status(200)",
+              "})"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "accept",
+            "value": "*/*"
+          },
+          {
+            "key": "accept-language",
+            "value": "en-US,en;q=0.9"
+          },
+          {
+            "key": "authorization",
+            "value": "{{loginToken}}"
+          }
+        ],
+        "url": {
+          "raw": "https://api.freecrm.com/api/1/gridview/contact/",
+          "protocol": "https",
+          "host": [
+            "api",
+            "freecrm",
+            "com"
+          ],
+          "path": [
+            "api",
+            "1",
+            "gridview",
+            "contact",
+            ""
+          ]
+        },
+        "description": "Generated from cURL: curl 'https://api.freecrm.com/api/1/gridview/contact/' \\\n  -H 'accept: */*' \\\n  -H 'accept-language: en-US,en;q=0.9' \\\n  -H 'authorization: Token d6dd136e39ff766c849476ace0995a51df5b9a16' \\\n  -H 'origin: https://new.freecrm.com' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://new.freecrm.com/' \\\n  -H 'sec-ch-ua: \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"150\", \"Google Chrome\";v=\"150\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-site' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36'"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "loginToken",
+      "value": ""
+    }
+  ]
+}
