@@ -29,9 +29,8 @@ jobs:
 
       - name: Run the collection with newman
         run: |
-             newman run 'Inwarranty-flowCollectionEX.postman_collection.json' \
-             -e QA.postman_environment.json \
-             -d testdata.csv \
+             newman run 'FreeCRM Handson.postman_collection.json' \
+             -e 'Free CRM QA.postman_environment.json' \
              -r cli,htmlextra \
              --reporter-htmlextra-export ./newman/index.html
 
